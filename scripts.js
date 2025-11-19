@@ -2,6 +2,7 @@ let coins = 80;
 const callValues = document.querySelectorAll("#call");
 const callingDec = document.getElementById('calling-dec');
 const clearHistoryBtn = document.getElementById("clearHistory");
+const historyList = document.getElementById("historyList");
 
 callValues.forEach(callValue => {
     callValue.addEventListener("click", function() {
@@ -51,4 +52,39 @@ callValues.forEach(callValue => {
     });
 
 });
+
+clearHistoryBtn.addEventListener('click', function() {
+    historyList.innerHTML = "";
+    // console.log("click")
+});
+
+const copyButtons = document.querySelectorAll(".btn-copy");
+
+copyButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+        let copy = 0;
+        
+        // Get parent card
+        const card = btn.closest(".emergency_all");
+
+        // Get service name and number
+        const serviceName = card.querySelector("#serviceName").innerText;
+        const number = card.querySelector("#emergency_number").innerText;
+
+        // Make text to copy
+        const textToCopy = `${serviceName} - ${number}`;
+
+        // Copy to clipboard
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+                alert(`Copied: ${textToCopy}`);
+            })
+            .catch(err => {
+                console.log("Copy failed!", err);
+            });
+
+        copy += 
+    });
+});
+
 
