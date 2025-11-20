@@ -92,3 +92,16 @@ copyButtons.forEach(btn => {
 });
 
 
+// heart_icon
+const heartIcons = document.querySelectorAll("#heart_icon");
+const heartCount = document.getElementById("heart_in");
+
+for(heartIcon of heartIcons) {
+    heartIcon.addEventListener("click", function () {
+    let count = parseInt(heartCount.innerText);
+    count++;
+    heartCount.innerText = count;
+
+    console.log(heartIcon)
+});
+}
