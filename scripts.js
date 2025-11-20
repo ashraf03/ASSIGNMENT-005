@@ -29,7 +29,7 @@ callValues.forEach(callValue => {
 
         coins -= 20;
         callingDec.innerHTML = coins;
-
+        console.log(callingDec)
          // Generate time
         const time = new Date().toLocaleTimeString();
 
@@ -59,10 +59,10 @@ clearHistoryBtn.addEventListener('click', function() {
 });
 
 const copyButtons = document.querySelectorAll(".btn-copy");
-
+const copyCount = document.getElementById("copy_in");
 copyButtons.forEach(btn => {
     btn.addEventListener("click", function () {
-        let copy = 0;
+      let value = parseInt(copyCount.innerText);
         
         // Get parent card
         const card = btn.closest(".emergency_all");
@@ -83,7 +83,11 @@ copyButtons.forEach(btn => {
                 console.log("Copy failed!", err);
             });
 
-        copy += 
+            value++;
+
+            copyCount.innerText = value;
+
+            console.log(copyCount);
     });
 });
 
